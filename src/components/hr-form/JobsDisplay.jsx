@@ -9,7 +9,7 @@ const JobsDisplay = () => {
   }, []);
 
   const fetchJobs = () => {
-    fetch('https://job-opening-backend-production.up.railway.app/jobs')
+    fetch('https://job-opening-backend-production-7112.up.railway.app/jobs')
       .then((res) => res.json())
       .then((data) => setJobs(data));
   };
@@ -17,7 +17,7 @@ const JobsDisplay = () => {
   const handleDelete = (id) => {
     if (!window.confirm('Are you sure you want to delete this job?')) return;
 
-    fetch(`https://job-opening-backend-production.up.railway.app/jobs/${id}`, {
+    fetch(`https://job-opening-backend-production-7112.up.railway.app/jobs/${id}`, {
       method: 'DELETE',
     })
       .then((res) => {
@@ -35,7 +35,7 @@ const JobsDisplay = () => {
   const handleEditSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`https://job-opening-backend-production.up.railway.app/jobs/${editingJob.id}`, {
+    fetch(`https://job-opening-backend-production-7112.up.railway.app/jobs/${editingJob.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
