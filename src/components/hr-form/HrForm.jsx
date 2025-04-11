@@ -25,11 +25,12 @@ const HrForm = () => {
     console.log("Job Profile:", formattedJob);
     alert("Job profile saved successfully!");
 
-    fetch("https://job-opening-backend-production.up.railway.app/jobs", {
+    fetch("https://job-opening-backend-production-7112.up.railway.app/jobs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formattedJob),
     })
+    
       .then((res) => res.json())
       .then((data) => {
         alert("Job submitted successfully!");
