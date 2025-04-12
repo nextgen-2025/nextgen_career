@@ -150,7 +150,7 @@ const HrForm = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-teal-500/80 text-white py-2 px-4 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="w-full bg-teal-500/80 text-white py-2 px-4 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
         >
           Save Job Profile
         </button>
