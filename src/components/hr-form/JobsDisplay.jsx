@@ -4,14 +4,29 @@ const JobsDisplay = () => {
   const [jobs, setJobs] = useState([]);
   const [editingJob, setEditingJob] = useState(null);
 
+  // Add polling interval
   useEffect(() => {
-    fetchJobs();
-  }, []);
+    fetchJobs(); // Initial fetch
+
+    // Set up polling every 3 seconds
+    const interval = setInterval(() => {
+      fetchJobs();
+    }, 3000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array means this runs once on mount
 
   const fetchJobs = () => {
     fetch('https://job-opening-backend-production-7112.up.railway.app/jobs')
       .then((res) => res.json())
-      .then((data) => setJobs(data));
+      .then((data) => {
+        // Compare current jobs with new data to avoid unnecessary updates
+        if (JSON.stringify(jobs) !== JSON.stringify(data)) {
+          setJobs(data);
+        }
+      })
+      .catch(error => console.error('Error fetching jobs:', error));
   };
 
   const handleDelete = (id) => {
